@@ -1,0 +1,60 @@
+#Git and GitHub  Workflow Steps 
+
+Step 1
+git log/status - checks whether the current dir is a git repo or not (assuming it's not).
+
+Step 2
+git init - initializes the dir into a git repo indicated by the .git extension at the end of the path.
+
+Step 3
+git status - if the dir (now a git repo) had files before its git init, they will appear in red letters as untracked (step 6 deals with this in detail, at
+this point the intention is to confirm that this is now a git repo).
+
+Step 4
+git remote - checks for remote version control server connections (e.g., GitHub, the popular option).
+No connection will be detected because GitHub connects to Git repos, not regular directories. This will output
+nothing to the console.
+
+Step 4
+git remote add origin <GitHub Link to Repo here> - This will establish a connection  between the local repo
+and the GitHub remote origin repo (origin is the industry-standard convention alias for the default remote repo name).
+
+Step 5
+git remote - This command confirms whether a remote repo is connected to the local or not; in this case, it is (see step 4)
+and the output will be "origin" (see step 4 on the alias origin).
+
+Step 6
+git status - checks the working tree for any files. Assuming there were files in the dir before step 2, those files
+will appear in red as untracked. It is important to make at least one commit before establishing a Git and GitHub repos
+connection. If a connection is established without the implementation of a single commit, a message of divergent histories
+will be logged on the console. If this is the case, a better step is to run the following CLI command: rm -rf <.git>
+The command tells git to recursively (r - apply the command actions to the git repo and all its subdirectories) forcefully (f -
+overrides any caution for sensitive metadata, for example, config files and so on). The exclusion of the -f flag and only running the -r flag will
+require manual confirmation for the deletion of every sensitive metadata, which can be time-consuming. So only use the -rf flag when
+sure that deletion of the .git repo data is intended.
+
+Step 6
+git add - This will stage and track the files (previously marked red and untracked), confirmed by the color change to green.
+This indicates that the files are now ready to be committed. If you have more than one file and want to commit them all at once, add a period at
+the end of the command like so: (git add .), but if not and you prefer committing individually, use (git add <file name here>).
+
+
+Step 7
+git commit -m <"Descriptive commit message here in parenthesis"> - This will establish your first commit.
+
+Step 8
+git status - At this stage, there should be no untracked or unstaged files in the working tree.
+
+Step 9
+git pull origin main - It is important to first PULL before you PUSH to avoid the divergent histories notification message.
+This command tells Git to pull (copy) the version history in the remote origin repo from the branch main to the local repo
+on your local machine.
+
+Step 10
+git log - This command logs the entire commit history to your local repo (step 9).
+
+Step 11
+git push -u origin main - This command tells Git to establish a connection between the local and remote repos. The -u flag (upstream) is the linking
+modifier that connects the local repo to the remote origin repo's branch main. From now on, when you push (always pulling before pushing), the argumement/pathspac
+(origin main) is not necessary.
+    
