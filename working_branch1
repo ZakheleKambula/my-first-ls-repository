@@ -1,0 +1,24 @@
+#Branching Workflow
+
+Step 1
+git checkout -b <new branch name here> - This becomes the child of the main branch and has all its DNA,
+that is, a copy of its version history (all commits).
+
+Step 2
+git checkout -b <new branch number 2 name here> - Same logic from step one applies here. Note, this ONLY has
+the DNA from the new branch in step 1, NOT from the main branch. The new branch number 2 is the child of the
+new branch (in step 1) and has no connection or affiliation with the main branch (the parent of its parent).
+
+#Merging Work-Flow
+
+Step 1
+git diff <current working branch name desired to merge changes into here> <file name with the changes to merge here>
+
+Step 2
+git merge <file name with changes to merge here> - IMPORTANT - you can ONLY  merge to your current working branch,
+hence the destination is not specified in the command but only the source. If your not sure of your working branch,
+run git branch, git checkout <desired branch name>, and git branch to confirm again.
+
+#Git Commands Use Specifications
+Commands for Remote Interaction: push, pull, fetch, clone. Local and remote communication ONLY.
+Commands for Local Branch Interaction: merge, checkout, rebase, and diff. local repository communication ONLY.
